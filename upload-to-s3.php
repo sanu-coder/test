@@ -4,10 +4,10 @@ use Aws\S3\S3Client;
 // Instantiate an Amazon S3 client.
 $s3Client = new S3Client([
 'version' => 'latest',
-'region'  => 'ap-south-1',
+'region'  => 'YOUR_AWS_REGION',
 'credentials' => [
-'key'    => 'AKIAY7J6PANE7ZJRCHEN',
-'secret' => 'q4YOeytglmXlRxAgy24lBK3NzxfOSYTIGxt8csgm'
+'key'    => 'YOUR_ID',
+'secret' => 'YOUR_SECRET_ACCESS_KEY'
 ]
 ]);
 // Check if the form was submitted
@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     echo $filename . " is already exists.";
     } else{
     if(move_uploaded_file($_FILES["anyfile"]["tmp_name"], "upload/" . $filename)){
-    $bucket = 'medical-book';
+    $bucket = 'YOUR_BUCKET_NAME';
     $file_Path = __DIR__ . '/upload/'. $filename;
     $key = basename($file_Path);
     try {
